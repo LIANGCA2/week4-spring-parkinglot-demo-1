@@ -36,4 +36,9 @@ public class OrderController {
         return parkingBoyService.parkCar(orderId,parkingBoy);
 
     }
+
+    @DeleteMapping("receipt/{receiptId}")
+    public String deleteReceipt(@PathVariable String receiptId) throws Exception {
+        return orderService.deleteReceipt(receiptId);
+    }
 }

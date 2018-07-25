@@ -42,4 +42,13 @@ public class ParkingLotServiceImpl implements ParkingLotService {
             }
         }
     }
+
+    @Override
+    public void unpark(Integer parkingLotId) {
+        for(int i = 0;i<parkingLotList.size();i++){
+            if(parkingLotList.get(i).getParkingBoyId()==parkingLotId){
+                parkingLotList.get(i).setRemainSize(parkingLotList.get(i).getRemainSize()+1);
+            }
+        }
+    }
 }

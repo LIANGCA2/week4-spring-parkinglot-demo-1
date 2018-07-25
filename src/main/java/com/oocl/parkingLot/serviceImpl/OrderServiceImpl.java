@@ -5,6 +5,8 @@ import com.oocl.parkingLot.Util.GenerateUtil;
 import com.oocl.parkingLot.model.Order;
 import com.oocl.parkingLot.model.Receipt;
 import com.oocl.parkingLot.service.OrderService;
+import com.oocl.parkingLot.service.ParkingLotService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +14,8 @@ import java.util.stream.Collectors;
 
 @Service("orderService")
 public class OrderServiceImpl  implements OrderService {
+    @Autowired
+    private ParkingLotService parkingLotService;
     private List<Order> orderList = ParkingLotApplication.allOrder();
     private List<Receipt> receiptList = ParkingLotApplication.allReceipt();
     @Override
@@ -60,5 +64,36 @@ public class OrderServiceImpl  implements OrderService {
     @Override
     public Order findOrderById(String orderId) {
         return orderList.stream().filter(item->item.getId().equals(orderId)).collect(Collectors.toList()).get(0);
+    }
+
+    @Override
+    public String deleteReceipt(String receiptId) throws Exception {
+
+        Order orderByReceipt = findOrderByReceipt(receiptId);
+        if(findReceipt(receiptId)){
+            parkingLotService.unpark(orderByReceipt.getParkingLotId());
+            for(int i = 0;i<receiptList.size();i++){
+                if(receiptList.get(i).getId().equals(receiptId)){
+                    receiptList.remove(i);
+                    break;
+                }
+            }
+            return "取车成功";
+        }
+        else{
+            throw new Exception("无效的小票");
+        }
+    }
+
+    private Order findOrderByReceipt(String receiptId) throws Exception {
+         if(orderList.stream().filter(item->item.getReceiptId().equals(receiptId)).collect(Collectors.toList()).size()>0){
+            return orderList.stream().filter(item->item.getReceiptId().equals(receiptId)).collect(Collectors.toList()).get(0);
+         }else{
+             throw new Exception("没有该订单");
+         }
+    }
+
+    private boolean findReceipt(String receiptId) {
+        return receiptList.stream().filter(item->item.getId().equals(receiptId)).collect(Collectors.toList()).size()>0;
     }
 }

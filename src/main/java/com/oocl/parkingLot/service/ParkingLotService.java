@@ -12,4 +12,6 @@ public interface ParkingLotService {
     ParkingLot findNotFullParkingLot(ParkingBoy parkingBoy) throws Exception;
 
     void ReduceParkingLotRemainSize(ParkingLot parkingLot);
+
+    void unpark(Integer parkingLotId);
 }

@@ -16,4 +16,6 @@ public interface OrderService {
     Boolean updateOrder(String orderId,Integer parkingLotId) throws Exception;
 
     Order findOrderById(String orderId);
+
+    String deleteReceipt(String receiptId) throws Exception;
 }
