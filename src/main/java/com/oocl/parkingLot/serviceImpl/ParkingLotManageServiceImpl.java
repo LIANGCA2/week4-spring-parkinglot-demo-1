@@ -24,8 +24,12 @@ public class ParkingLotManageServiceImpl implements ParkingLotManageService {
 
     @Override
     public ParkingLot giveParkingLotToParkingBoy(Integer parkingBoyId, ParkingLot parkingLot) {
-       parkingLot.setParkingBoyId(parkingBoyId);
-       parkingLotList.add(parkingLot);
+       for(int i =0;i<parkingLotList.size();i++){
+           if(parkingLotList.get(i).getId()==parkingLot.getId()){
+               parkingLotList.get(i).setParkingBoyId(parkingBoyId);
+               return parkingLotList.get(i);
+           }
+       }
         return null;
     }
 

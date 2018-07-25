@@ -38,7 +38,7 @@ public class ParkinglotManageController {
     }
 
     @PostMapping("parkingBoys/{parkingBoyId}/parkingLots")
-    public ParkingLot updateParkingLot(@PathVariable Integer parkingBoyId, ParkingLot parkingLot){
+    public ParkingLot updateParkingLot(@PathVariable Integer parkingBoyId, @RequestBody ParkingLot parkingLot){
         try {
             return parkingLotManageService.giveParkingLotToParkingBoy(parkingBoyId,parkingLot);
         }catch (Exception e){
