@@ -11,5 +11,9 @@ public interface OrderService {
 
     Order addOrder(Order order) throws Exception;
 
-    List<Order> getOrderByStatus();
+    List<Order> getValidOrder();
+
+    Boolean updateOrder(String orderId,Integer parkingLotId) throws Exception;
+
+    Order findOrderById(String orderId);
 }

@@ -23,12 +23,12 @@ public class ParkingLotApplication {
     @Bean
     public static List<ParkingLot> allParkingLot() {
         List<ParkingLot> parkingLotList = new ArrayList<>();
-        parkingLotList.add(new ParkingLot(1, 1));
-        parkingLotList.add(new ParkingLot(2, 1));
-        parkingLotList.add(new ParkingLot(3, 1));
-        parkingLotList.add(new ParkingLot(4, 3));
-        parkingLotList.add(new ParkingLot(5, 2));
-        parkingLotList.add(new ParkingLot(6, 3));
+        parkingLotList.add(new ParkingLot(1, 1,1));
+        parkingLotList.add(new ParkingLot(2, 1,1));
+        parkingLotList.add(new ParkingLot(3, 1,1));
+        parkingLotList.add(new ParkingLot(4, 3,1));
+        parkingLotList.add(new ParkingLot(5, 2,1));
+        parkingLotList.add(new ParkingLot(6, 3,1));
         return parkingLotList;
     }
 

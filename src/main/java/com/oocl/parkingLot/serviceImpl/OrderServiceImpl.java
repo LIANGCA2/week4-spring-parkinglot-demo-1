@@ -39,7 +39,26 @@ public class OrderServiceImpl  implements OrderService {
     }
 
     @Override
-    public List<Order> getOrderByStatus() {
+    public List<Order> getValidOrder() {
         return orderList.stream().filter(item->!item.getStatus()).collect(Collectors.toList());
+    }
+
+    @Override
+    public Boolean updateOrder(String orderId,Integer parkingLotId) throws Exception {
+        List<Order> validOrder =getValidOrder();
+        for(int i =0;i<validOrder.size();i++){
+            if(validOrder.get(i).getId().equals(orderId)){
+                Order order = validOrder.get(i);
+                order.setStatus(true);
+                order.setParkingLotId(parkingLotId);
+               return true;
+            }
+        }
+        throw new Exception("没有该订单");
+    }
+
+    @Override
+    public Order findOrderById(String orderId) {
+        return orderList.stream().filter(item->item.getId().equals(orderId)).collect(Collectors.toList()).get(0);
     }
 }
