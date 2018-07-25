@@ -1,5 +1,6 @@
 package com.oocl.parkingLot;
 
+import com.oocl.parkingLot.model.Order;
 import com.oocl.parkingLot.model.ParkingBoy;
 import com.oocl.parkingLot.model.ParkingLot;
 import com.oocl.parkingLot.model.Receipt;
@@ -41,7 +42,8 @@ public class ParkingLotApplication {
 		parkingBoyList.add(new ParkingBoy(6));
 		return parkingBoyList;
 	}
-	public static List<Receipt> allReceipt(){
+
+	public static List<Order> allOrder(){
 		return new ArrayList<>();
 	}
 }

@@ -1,6 +1,7 @@
 package com.oocl.parkingLot.controller;
 
 
+import com.oocl.parkingLot.model.Order;
 import com.oocl.parkingLot.model.ParkingBoy;
 import com.oocl.parkingLot.model.ParkingLot;
 import com.oocl.parkingLot.model.Receipt;
@@ -50,13 +51,15 @@ public class ParkinglotManageController {
     }
 
 
-    @PostMapping("receipt")
-    public Receipt createReceipt(@RequestBody Receipt receipt){
-        return parkingLotManageService.createReceipt(receipt);
-
+    @GetMapping("receipt")
+    public Receipt getReceipt(){
+        return parkingLotManageService.getReceipt();
     }
 
 
-
+    @PostMapping("order")
+    public Order addOrder(@RequestBody Order order){
+        return parkingLotManageService.addOrder(order);
+    }
 
 }

@@ -1,5 +1,6 @@
 package com.oocl.parkingLot.service;
 
+import com.oocl.parkingLot.model.Order;
 import com.oocl.parkingLot.model.ParkingBoy;
 import com.oocl.parkingLot.model.ParkingLot;
 import com.oocl.parkingLot.model.Receipt;
@@ -17,5 +18,7 @@ public interface ParkingLotManageService {
 
     List<ParkingBoy> addParkingBoy(ParkingBoy parkingBoy);
 
-    Receipt createReceipt(Receipt receipt);
+    Receipt getReceipt();
+
+    Order addOrder(Order order);
 }

@@ -2,6 +2,7 @@ package com.oocl.parkingLot.serviceImpl;
 
 import com.oocl.parkingLot.ParkingLotApplication;
 import com.oocl.parkingLot.Util.GenerateUtil;
+import com.oocl.parkingLot.model.Order;
 import com.oocl.parkingLot.model.ParkingBoy;
 import com.oocl.parkingLot.model.ParkingLot;
 import com.oocl.parkingLot.model.Receipt;
@@ -15,7 +16,7 @@ import java.util.List;
 public class ParkingLotManageServiceImpl implements ParkingLotManageService {
     private List<ParkingLot> parkingLotList = ParkingLotApplication.allParkingLot();
     private List<ParkingBoy> parkingBoyList = ParkingLotApplication.allParkingBoy();
-    private List<Receipt> receiptList = ParkingLotApplication.allReceipt();
+    private List<Order> orderList = ParkingLotApplication.allOrder();
     @Override
     public List<ParkingLot> findAllParkingLot() {
         return parkingLotList;
@@ -50,9 +51,15 @@ public class ParkingLotManageServiceImpl implements ParkingLotManageService {
     }
 
     @Override
-    public Receipt createReceipt(Receipt receipt) {
-        receipt.setId(GenerateUtil.genenerateUUID());
-        receipt.setStatus(false);
+    public Receipt getReceipt() {
+      Receipt receipt = new Receipt();
+      receipt.setId(GenerateUtil.genenerateUUID());
         return receipt;
+    }
+
+    @Override
+    public Order addOrder(Order order) {
+        orderList.add(order);
+        return order;
     }
 }
