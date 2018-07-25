@@ -3,6 +3,7 @@ package com.oocl.parkingLot.controller;
 
 import com.oocl.parkingLot.model.ParkingBoy;
 import com.oocl.parkingLot.model.ParkingLot;
+import com.oocl.parkingLot.model.Receipt;
 import com.oocl.parkingLot.service.ParkingLotManageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -47,5 +48,15 @@ public class ParkinglotManageController {
         }
 
     }
+
+
+    @PostMapping("receipt")
+    public Receipt createReceipt(@RequestBody Receipt receipt){
+        return parkingLotManageService.createReceipt(receipt);
+
+    }
+
+
+
 
 }

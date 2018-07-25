@@ -2,6 +2,7 @@ package com.oocl.parkingLot;
 
 import com.oocl.parkingLot.model.ParkingBoy;
 import com.oocl.parkingLot.model.ParkingLot;
+import com.oocl.parkingLot.model.Receipt;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -39,5 +40,8 @@ public class ParkingLotApplication {
 		parkingBoyList.add(new ParkingBoy(5));
 		parkingBoyList.add(new ParkingBoy(6));
 		return parkingBoyList;
+	}
+	public static List<Receipt> allReceipt(){
+		return new ArrayList<>();
 	}
 }

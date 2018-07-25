@@ -1,17 +1,21 @@
 package com.oocl.parkingLot.serviceImpl;
 
 import com.oocl.parkingLot.ParkingLotApplication;
+import com.oocl.parkingLot.Util.GenerateUtil;
 import com.oocl.parkingLot.model.ParkingBoy;
 import com.oocl.parkingLot.model.ParkingLot;
+import com.oocl.parkingLot.model.Receipt;
 import com.oocl.parkingLot.service.ParkingLotManageService;
 import org.springframework.stereotype.Service;
 
+import javax.rmi.CORBA.Util;
 import java.util.List;
 
 @Service("parkingLotManageService")
 public class ParkingLotManageServiceImpl implements ParkingLotManageService {
     private List<ParkingLot> parkingLotList = ParkingLotApplication.allParkingLot();
     private List<ParkingBoy> parkingBoyList = ParkingLotApplication.allParkingBoy();
+    private List<Receipt> receiptList = ParkingLotApplication.allReceipt();
     @Override
     public List<ParkingLot> findAllParkingLot() {
         return parkingLotList;
@@ -43,5 +47,12 @@ public class ParkingLotManageServiceImpl implements ParkingLotManageService {
     public List<ParkingBoy> addParkingBoy(ParkingBoy parkingBoy) {
         parkingBoyList.add(parkingBoy);
         return parkingBoyList;
+    }
+
+    @Override
+    public Receipt createReceipt(Receipt receipt) {
+        receipt.setId(GenerateUtil.genenerateUUID());
+        receipt.setStatus(false);
+        return receipt;
     }
 }
