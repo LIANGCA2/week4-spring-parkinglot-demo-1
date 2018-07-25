@@ -32,6 +32,11 @@ public class ParkinglotManageController {
         return parkingLotManageService.findAllParkingBoy();
     }
 
+    @PostMapping("parkingBoys")
+    public List<ParkingBoy> addParking(@RequestBody ParkingBoy parkingBoy){
+        return parkingLotManageService.addParkingBoy(parkingBoy);
+    }
+
     @PostMapping("parkingBoys/{parkingBoyId}/parkingLots")
     public ParkingLot updateParkingLot(@PathVariable Integer parkingBoyId, ParkingLot parkingLot){
         try {

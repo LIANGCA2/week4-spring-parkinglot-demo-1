@@ -34,4 +34,10 @@ public class ParkingLotManageServiceImpl implements ParkingLotManageService {
         parkingLotList.add(parkingLot);
         return parkingLotList;
     }
+
+    @Override
+    public List<ParkingBoy> addParkingBoy(ParkingBoy parkingBoy) {
+        parkingBoyList.add(parkingBoy);
+        return parkingBoyList;
+    }
 }

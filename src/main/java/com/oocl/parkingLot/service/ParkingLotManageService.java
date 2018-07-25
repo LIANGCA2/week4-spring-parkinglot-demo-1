@@ -13,4 +13,6 @@ public interface ParkingLotManageService {
     ParkingLot giveParkingLotToParkingBoy(Integer parkingBoyId, ParkingLot parkingLot);
 
     List<ParkingLot> addParkingLot(ParkingLot parkingLot);
+
+    List<ParkingBoy> addParkingBoy(ParkingBoy parkingBoy);
 }

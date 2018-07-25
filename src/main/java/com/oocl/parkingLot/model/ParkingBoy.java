@@ -7,6 +7,9 @@ public class ParkingBoy {
         this.id = id;
     }
 
+    public ParkingBoy() {
+    }
+
     public Integer getId() {
         return id;
     }
