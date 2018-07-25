@@ -20,7 +20,9 @@ public class ParkinglotManageController {
     @PostMapping("parkingBoys/{parkingBoyId}/parkingLots")
     public ParkingLot updateParkingLot(@PathVariable Integer parkingBoyId, @RequestBody ParkingLot parkingLot){
         try {
-            return parkingLotManageService.giveParkingLotToParkingBoy(parkingBoyId,parkingLot);
+            ParkingLot parkingLot1 = parkingLotManageService.giveParkingLotToParkingBoy(parkingBoyId, parkingLot);
+            System.out.println(parkingLot1);
+            return parkingLot1;
         }catch (Exception e){
             System.out.println("fail to update");
             return null;

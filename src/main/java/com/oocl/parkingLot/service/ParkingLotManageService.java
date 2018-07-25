@@ -11,7 +11,7 @@ public interface ParkingLotManageService {
 
 
 
-    ParkingLot giveParkingLotToParkingBoy(Integer parkingBoyId, ParkingLot parkingLot);
+    ParkingLot giveParkingLotToParkingBoy(Integer parkingBoyId, ParkingLot parkingLot) throws Exception;
 
 
 

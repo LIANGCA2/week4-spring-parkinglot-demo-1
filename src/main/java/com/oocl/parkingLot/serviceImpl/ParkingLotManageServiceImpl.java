@@ -24,7 +24,7 @@ public class ParkingLotManageServiceImpl implements ParkingLotManageService {
 
 
     @Override
-    public ParkingLot giveParkingLotToParkingBoy(Integer parkingBoyId, ParkingLot parkingLot) {
+    public ParkingLot giveParkingLotToParkingBoy(Integer parkingBoyId, ParkingLot parkingLot) throws Exception {
         List<ParkingLot> parkingLotList= parkingLotService.findAllParkingLot();
         for(int i =0;i<parkingLotList.size();i++){
            if(parkingLotList.get(i).getId()==parkingLot.getId()){
@@ -32,7 +32,7 @@ public class ParkingLotManageServiceImpl implements ParkingLotManageService {
                return parkingLotList.get(i);
            }
        }
-        return null;
+        throw new Exception("该停车场不存在");
     }
 
 

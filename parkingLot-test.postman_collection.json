@@ -1,0 +1,396 @@
+{
+	"info": {
+		"_postman_id": "eab642ec-e8ae-46ee-b4ef-803bf1d41f9b",
+		"name": "parkingLot-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"_postman_id": "8685a07e-aaef-4202-ad68-b05499ed9616",
+			"name": "http://localhost:8080/parkingBoys/1/parkingLots",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "26650760-a660-4c7d-a7be-38213b635b37",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"give parkingLot To parkingBoy\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.eql({",
+							"    \"id\": 4,",
+							"    \"parkingBoyId\": 1,",
+							"    \"size\": 1,",
+							"    \"remainSize\": 1",
+							"});",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\n    \"id\": 4\n  }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/parkingBoys/1/parkingLots",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkingBoys",
+						"1",
+						"parkingLots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "eb18007c-f6d6-43d8-94cf-ff26cf6ddea8",
+			"name": "http://localhost:8080/parkinglots",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "656849b8-b2f1-4531-aaa6-8ce23742aa5f",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"add_parkingLot\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.eql([",
+							"    {",
+							"        \"id\": 1,",
+							"        \"parkingBoyId\": 1,",
+							"        \"size\": 1,",
+							"        \"remainSize\": 1",
+							"    },",
+							"    {",
+							"        \"id\": 2,",
+							"        \"parkingBoyId\": 1,",
+							"        \"size\": 1,",
+							"        \"remainSize\": 1",
+							"    },",
+							"    {",
+							"        \"id\": 3,",
+							"        \"parkingBoyId\": 1,",
+							"        \"size\": 1,",
+							"        \"remainSize\": 1",
+							"    },",
+							"    {",
+							"        \"id\": 4,",
+							"        \"parkingBoyId\": 3,",
+							"        \"size\": 1,",
+							"        \"remainSize\": 1",
+							"    },",
+							"    {",
+							"        \"id\": 5,",
+							"        \"parkingBoyId\": 2,",
+							"        \"size\": 1,",
+							"        \"remainSize\": 1",
+							"    },",
+							"    {",
+							"        \"id\": 6,",
+							"        \"parkingBoyId\": 3,",
+							"        \"size\": 1,",
+							"        \"remainSize\": 1",
+							"    },",
+							"    {",
+							"        \"id\": 1,",
+							"        \"parkingBoyId\": 1,",
+							"        \"size\": 1,",
+							"        \"remainSize\": 1",
+							"    }",
+							"]);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"id\": 1,\n        \"parkingBoyId\": 1,\n        \"size\": 1,\n        \"remainSize\": 1\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/parkinglots",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkinglots"
+					]
+				},
+				"description": "add_parkingLot"
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "f5eb0a76-7c68-4c3e-a8bf-a7e6b2bb1f43",
+			"name": "http://localhost:8080/parkinglots",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3963df27-9df2-489f-8661-57fd4cc00612",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"get_all_parkingLot\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.eql([",
+							"    {",
+							"        \"id\": 1,",
+							"        \"parkingBoyId\": 1,",
+							"        \"size\": 1,",
+							"        \"remainSize\": 1",
+							"    },",
+							"    {",
+							"        \"id\": 2,",
+							"        \"parkingBoyId\": 1,",
+							"        \"size\": 1,",
+							"        \"remainSize\": 1",
+							"    },",
+							"    {",
+							"        \"id\": 3,",
+							"        \"parkingBoyId\": 1,",
+							"        \"size\": 1,",
+							"        \"remainSize\": 1",
+							"    },",
+							"    {",
+							"        \"id\": 4,",
+							"        \"parkingBoyId\": 3,",
+							"        \"size\": 1,",
+							"        \"remainSize\": 1",
+							"    },",
+							"    {",
+							"        \"id\": 5,",
+							"        \"parkingBoyId\": 2,",
+							"        \"size\": 1,",
+							"        \"remainSize\": 1",
+							"    },",
+							"    {",
+							"        \"id\": 6,",
+							"        \"parkingBoyId\": 3,",
+							"        \"size\": 1,",
+							"        \"remainSize\": 1",
+							"    },",
+							"    {",
+							"        \"id\": 1,",
+							"        \"parkingBoyId\": 1,",
+							"        \"size\": 1,",
+							"        \"remainSize\": 1",
+							"    }",
+							"]);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/parkinglots",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkinglots"
+					]
+				},
+				"description": "get_all_parkingLot"
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "48f07a96-e6e9-422b-ac68-f06a4c98b1e4",
+			"name": "http://localhost:8080/parkingBoys",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bfeaa6a0-f1ff-4487-9668-87d6ae0da6c5",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"get_all_parkingBoy\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.eql([",
+							"    {",
+							"        \"id\": 1",
+							"    },",
+							"    {",
+							"        \"id\": 2",
+							"    },",
+							"    {",
+							"        \"id\": 3",
+							"    },",
+							"    {",
+							"        \"id\": 4",
+							"    },",
+							"    {",
+							"        \"id\": 5",
+							"    },",
+							"    {",
+							"        \"id\": 6",
+							"    }",
+							"]);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/parkingBoys",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkingBoys"
+					]
+				},
+				"description": "get_all_parkingBoy"
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "69391f88-f24b-4ba1-a4ca-889434fddd7e",
+			"name": "http://localhost:8080/parkingBoys",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5c1fcdd1-ce9d-4a46-a929-52281999dfa0",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"add_parkingBoy\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.eql([",
+							"    {",
+							"        \"id\": 1",
+							"    },",
+							"    {",
+							"        \"id\": 2",
+							"    },",
+							"    {",
+							"        \"id\": 3",
+							"    },",
+							"    {",
+							"        \"id\": 4",
+							"    },",
+							"    {",
+							"        \"id\": 5",
+							"    },",
+							"    {",
+							"        \"id\": 6",
+							"    },",
+							"    {",
+							"        \"id\": 7",
+							"    }",
+							"]);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": 7\r\n    }"
+				},
+				"url": {
+					"raw": "http://localhost:8080/parkingBoys",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"parkingBoys"
+					]
+				},
+				"description": "add_parkingBoy"
+			},
+			"response": []
+		},
+		{
+			"_postman_id": "e95c2279-b96d-4ee3-9a9e-fbee7eec6a3b",
+			"name": "http://localhost:8080/order",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e6a91fee-38cc-4c73-8978-20eb4f44af26",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"get_all_order\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData).to.eql([]);",
+							"});"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\":1\n\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order"
+					]
+				},
+				"description": "get_all_order"
+			},
+			"response": []
+		}
+	]
+}
