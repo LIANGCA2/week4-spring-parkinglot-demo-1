@@ -2,16 +2,16 @@ package com.oocl.parkingLot.model;
 
 public class Order {
     private String id;
-    private Integer receiptId;
+    private String receiptId;
     private Integer carId;
     private Integer parkingLotId;
     private Boolean status;
 
-    public Integer getReceiptId() {
+    public String getReceiptId() {
         return receiptId;
     }
 
-    public void setReceiptId(Integer receiptId) {
+    public void setReceiptId(String receiptId) {
         this.receiptId = receiptId;
     }
 

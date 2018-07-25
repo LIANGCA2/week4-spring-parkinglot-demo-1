@@ -8,17 +8,13 @@ import com.oocl.parkingLot.model.Receipt;
 import java.util.List;
 
 public interface ParkingLotManageService {
-    List<ParkingLot> findAllParkingLot();
 
-    List<ParkingBoy> findAllParkingBoy();
+
 
     ParkingLot giveParkingLotToParkingBoy(Integer parkingBoyId, ParkingLot parkingLot);
 
-    List<ParkingLot> addParkingLot(ParkingLot parkingLot);
 
-    List<ParkingBoy> addParkingBoy(ParkingBoy parkingBoy);
 
-    Receipt getReceipt();
 
-    Order addOrder(Order order);
+
 }

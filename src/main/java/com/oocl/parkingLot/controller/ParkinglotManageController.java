@@ -17,28 +17,6 @@ public class ParkinglotManageController {
     @Autowired
     private  ParkingLotManageService parkingLotManageService;
 
-
-    @GetMapping("parkinglots")
-    public List<ParkingLot> getAllParkingLot(){
-        return parkingLotManageService.findAllParkingLot();
-    }
-
-    @PostMapping("parkinglots")
-    public List<ParkingLot> addParkingLot(@RequestBody ParkingLot parkingLot){
-        return parkingLotManageService.addParkingLot(parkingLot);
-    }
-
-
-    @GetMapping("parkingBoys")
-    public List<ParkingBoy> getAllParkingBoy(){
-        return parkingLotManageService.findAllParkingBoy();
-    }
-
-    @PostMapping("parkingBoys")
-    public List<ParkingBoy> addParking(@RequestBody ParkingBoy parkingBoy){
-        return parkingLotManageService.addParkingBoy(parkingBoy);
-    }
-
     @PostMapping("parkingBoys/{parkingBoyId}/parkingLots")
     public ParkingLot updateParkingLot(@PathVariable Integer parkingBoyId, @RequestBody ParkingLot parkingLot){
         try {
@@ -51,15 +29,6 @@ public class ParkinglotManageController {
     }
 
 
-    @GetMapping("receipt")
-    public Receipt getReceipt(){
-        return parkingLotManageService.getReceipt();
-    }
 
-
-    @PostMapping("order")
-    public Order addOrder(@RequestBody Order order){
-        return parkingLotManageService.addOrder(order);
-    }
 
 }
